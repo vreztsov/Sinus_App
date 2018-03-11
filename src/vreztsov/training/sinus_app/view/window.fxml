@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="vreztsov.training.sinus_app.controller.Controller">
+   <children>
+      <VBox maxHeight="550" maxWidth="400" minHeight="550" minWidth="400" prefHeight="550.0" prefWidth="400.0" stylesheets="@sinusapp.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+          <children>
+            <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="400.0">
+               <children>
+            
+                    <Label id="title" alignment="CENTER" contentDisplay="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="35.0" prefWidth="400.0" text="Sinus App" textAlignment="CENTER" textFill="#1907b0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                        <font>
+                            <Font name="Cooper Black" size="18.0" />
+                        </font>
+                    </Label>
+               </children>
+            </AnchorPane>
+              <FlowPane prefHeight="68.0" prefWidth="400.0">
+                  <children>
+                      <Label alignment="CENTER" prefHeight="17.0" prefWidth="400.0" text="Диапазоны графика по осям:" textAlignment="CENTER" />
+                      <Label alignment="CENTER" prefHeight="17.0" prefWidth="45.0" text="Ось X: " />
+                      <TextField onAction="#parseXLimits" onMouseClicked="#parseXLimits" onMouseExited="#parseXLimits" prefHeight="25.0" prefWidth="150.0" promptText="x1,x2" fx:id="xLimits" />
+                      <Label alignment="CENTER" prefHeight="17.0" prefWidth="45.0" text="Ось Y: " />
+                      <TextField fx:id="yLimits" onAction="#parseYLimits" onMouseClicked="#parseYLimits" onMouseEntered="#parseYLimits" onMouseExited="#parseYLimits" prefHeight="25.0" prefWidth="155.0" promptText="y1,y2" />
+                      <Label fx:id="errorBar1" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="400.0" styleClass="statusBar" />
+                  </children>
+              </FlowPane>
+              <FlowPane prefHeight="44.0" prefWidth="400.0" styleClass="fp1">
+                  <children>
+                      <Label alignment="CENTER" prefHeight="17.0" prefWidth="400.0" text="Названия осей:" textAlignment="CENTER" />
+                      <Label alignment="CENTER" prefHeight="17.0" prefWidth="45.0" text="Ось X: " />
+                      <TextField prefHeight="25.0" prefWidth="150.0" fx:id="xAxisLabel" />
+                      <Label alignment="CENTER" prefHeight="17.0" prefWidth="45.0" text="Ось Y: " />
+                      <TextField fx:id="yAxisLabel" prefHeight="25.0" prefWidth="155.0" />
+                  </children>
+              </FlowPane>
+              <FlowPane prefHeight="44.0" prefWidth="400.0" styleClass="fp1">
+                  <children>
+                      <Label alignment="CENTER" prefHeight="17.0" prefWidth="400.0" text="Диапазон частоты (Гц):" textAlignment="CENTER" />
+                      <Label alignment="CENTER" prefHeight="17.0" prefWidth="45.0" text="мин. " />
+                      <TextField prefHeight="25.0" prefWidth="150.0" />
+                      <Label alignment="CENTER" prefHeight="17.0" prefWidth="45.0" text="макс. " />
+                      <TextField prefHeight="25.0" prefWidth="155.0" />
+                      <Label fx:id="errorBar2" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="25.0" prefWidth="400.0" styleClass="statusBar" />
+                  </children>
+              </FlowPane>
+              <GridPane alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0" prefWidth="400.0">
+                  <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="263.0" minWidth="10.0" prefWidth="237.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" maxWidth="195.0" minWidth="10.0" prefWidth="165.0" />
+                  </columnConstraints>
+                  <rowConstraints>
+                      <RowConstraints maxHeight="36.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                      <RowConstraints maxHeight="41.0" minHeight="9.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  </rowConstraints>
+                  <children>
+                      <Label prefHeight="17.0" prefWidth="219.0" text="Максимальная амплитуда колебаний: ">
+                          <GridPane.margin>
+                              <Insets left="10.0" />
+                          </GridPane.margin>
+                      </Label>
+                      <Label text="Среднее значение величины:" GridPane.rowIndex="1">
+                          <GridPane.margin>
+                              <Insets left="10.0" />
+                          </GridPane.margin>
+                      </Label>
+                      <TextField GridPane.columnIndex="1">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin></TextField>
+                      <TextField GridPane.columnIndex="1" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets left="5.0" right="5.0" />
+                     </GridPane.margin></TextField>
+                  </children>
+              </GridPane>
+              <Label prefHeight="25.0" prefWidth="400.0" />
+              <Label id="tableTitle" alignment="CENTER" prefHeight="25.0" prefWidth="400.0" text="Таблица координат пиковых значений" />
+            <VBox>
+               <children>
+      
+                    <ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="250.0" prefWidth="400.0">
+                        <content>
+                            <TableView id="table" fx:id="dataTableView" editable="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="385.0">
+                                <columns>
+                                    <TableColumn id="numberColumn" fx:id="pointNumber" text="№" />
+                                    <TableColumn fx:id="coordinateX" styleClass="pointColumn" text="Координата X" />
+                                    <TableColumn fx:id="coordinateY" styleClass="pointColumn" text="Координата Y" />
+                                </columns>
+                            </TableView>
+                        </content>
+                    </ScrollPane>
+                  <HBox prefWidth="200.0" spacing="5.0">
+                     <children>
+                        <Label text="X:" />
+                        <TextField prefHeight="25.0" styleClass="inputTextField" fx:id="xInputField" />
+                        <Label text="Y:" />
+                        <TextField fx:id="yInputField" prefHeight="25.0" styleClass="inputTextField" />
+                        <Button maxWidth="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#addPair" prefWidth="75.0" text="Добавить">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin></Button>
+                        <Button mnemonicParsing="false" onAction="#deletePair" prefWidth="75.0" text="Удалить" />
+                     </children>
+                     <padding>
+                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                     </padding>
+                  </HBox>
+               </children>
+            </VBox>
+            <Label fx:id="statusBar" alignment="CENTER" maxHeight="-Infinity" minHeight="-Infinity" prefWidth="400.0" styleClass="statusBar" />
+              <ButtonBar id="button_bar" buttonMinWidth="85.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="400.0" VBox.vgrow="NEVER">
+                  <VBox.margin>
+                      <Insets />
+                  </VBox.margin>
+               <buttons>
+                  <Button alignment="CENTER" contentDisplay="RIGHT" mnemonicParsing="false" nodeOrientation="LEFT_TO_RIGHT" onAction="#plot" prefHeight="25.0" prefWidth="205.0" text="Построить график" />
+                  <Button mnemonicParsing="false" onAction="#startAfresh" text="Начать заново" />
+                  <Button mnemonicParsing="false" onAction="#saveToWordFile" text="Сохранить в файл" />
+               </buttons>
+               <padding>
+                  <Insets bottom="10.0" right="10.0" top="5.0" />
+               </padding>
+              </ButtonBar>
+      
+          </children>
+      </VBox>
+   </children>
+</AnchorPane>
